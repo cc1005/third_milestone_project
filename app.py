@@ -1,8 +1,16 @@
 import os
 from flask import Flask
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+from os import path
+if path.exists("env.py"):
+    import env
+
 
 app = Flask(__name__)
 
+app.config["MONGO_DBNAME"] = 'task_manager'
+app.config["MONGO_URI"] = os.environ.get("Mongoinfo")
 
 @app.route('/')
 def hello():
