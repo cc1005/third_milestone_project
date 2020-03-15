@@ -14,7 +14,7 @@ app.config["MONGO_URI"] = os.environ.get("Mongoinfo")
 
 @app.route('/')
 def hello():
-    return 'Hello World'
+    return os.environ.get("testmessage")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
