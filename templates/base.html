@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    </head>
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <body>
-        {% block content %} {% endblock %}
+</head>
 
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-            $(document).ready(function(){
+<body>
+
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Irish biography</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/add_post">Write a biography</a></li>
+      </ul>
+    </div>
+  </nav>
+
+	{% block content %} {% endblock %}
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function(){
                 $('.collapsible').collapsible();
             });
-        </script>
+	</script>
 
-    </body>
+</body>
+
 </html>

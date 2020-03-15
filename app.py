@@ -19,6 +19,10 @@ mongo = PyMongo(app)
 def get_posts():
     return render_template("posts.html", posts=mongo.db.adminPosts.find())
 
+@app.route('/add_post')
+def add_post():
+    return render_template('addpost.html')
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
