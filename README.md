@@ -1,35 +1,33 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+First Draft of Readme
 
-Welcome Conor Campbell,
+Early ideas for the project centred around an Irish-history centred Wikipedia style website, but one where all entries were approved/checked by myself as an expert on the topic. Any user could create a post for the website, but every post on creation would be given a Boolean attribute “approved” which would be default set to “False”. These posts would be run over by an if/else loop in Python which would check the Boolean value of “approved”, and if it was “False” the post would not be published. The purpose of this would be to make sure that no posts were published before I had read them and manually changed the “approved” value to “True”. 
+In order to make sure that no posts are left without being read for long periods of time, I will set up an alert in which I will automatically be sent an email whenever a post is made for the website. This will prevent any posts slipping past my notice. 
+Is there functionality have my Python script create a new page and plug it in every time a new post gets approved? This might be fairly complex.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+Planning and development
 
-## Gitpod Reminders
+Due to the continued transfers from different workspaces by the Code Institute, I decided to try and do all my coding on my local machine, using a virtual environment set up in Python. This proved to be very challenging, with many teething problems coming up as I tried to do something that was not covered by the Code Institute course. I believe this will prove useful for my future professional development as a software developer, but it also proved time consuming and frequently frustrating. In particular, it required developing my understanding of how databases like MongoDB Atlas communicate with servers, how ports work, and how environmental variables work outside of the closely controlled environment of Cloud9 (which by this point had already been shut down). 
+I made quite a bit of progress setting up the various connections on my local server, but encountered significant difficulties getting MongoDB Atlas to communicate with my local server through python, so eventually moved to GitPod, mainly for the higher level of support through Slack for that IDE. From there I started plugging in the various platforms I needed to get up and running, but faced significant obstacles trying to set up environmental variables to store sensitive user information (mainly my own MongoDB login details). Eventually, after incorrectly creating them in the ‘workspace’ directory, with tutor support I set up my env.py file in the main directory ‘third_milestone_project’, placed it in a .gitignore file, and managed to connect this to my central python app, testing its functionality with a “hello world” style test message. From this point onwards the connections with Heroku and MongoDB Atlas had been made (albeit over a long and fairly arduous period), and now I could focus on the actual coding/design of the project.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Design
 
-`python3 -m http.server`
+From an early stage I decided to keep the app to a single page to start. As it was primarily a biography site, emphasising key figures in Irish history with collapsible headings to save space, I did not see the need to introduce distinct categories or several pages for different types of information. As the scope of the website expanded, I could consider adding multiple different pages, potentially:
+	People
+	Events
+	Locations
+With more that could be potentially added. These categories could be applied to the post when reviewed by the administrator, or could be suggested from a list by the poster in the first place. 
 
-A blue button should appear to click: *Make Public*,
+Functionality
 
-Another blue button should appear to click: *Open Browser*.
+One basic feature that I wanted from the start was for all user-made posts to have a default Boolean value of ‘approved’ which would be ‘false’. I would then have to manually change that value to True. I would then write some python script to iterate over both the admin and the user posts, and only upload those which had the ‘approved’ value set to ‘True’.
+This proved somewhat of a challenge. At the start I did not know how to set a default value in Atlas MongoDB. I thought there were potentially two ways of doing this. One was having a hidden option on the form page itself which was already filled in with ‘False’ and would be submitted with the rest of the form, but this seemed like a cheat workaround instead of actually developing this functionality in the back end (if it would have worked at all).
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+With that in mind, I went looking for solutions that either:
+    a) triggered a certain package of script when the submit button on the form was pressed
+    b) meant that whenever the new entry was created in the database, Atlas automatically gave it the key value pair of ‘approved: false’ (much like it already did by giving each entry an automatic ID number). 
 
-A blue button should appear to click: *Make Public*,
+CRUD functionality
 
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+In the case of websites with user-created content, it is a challenge to incorporate the Update and Delete functionality of CRUD as it could be open for misuse, as users could delete and amend each other’s posts if these options were publicly available. 
+One solution (if I was at a more advanced stage in my course) would be to create user profiles who have certain permissions to do these two functions (making them admins for the site). I would initially be the only individual with these powers, which could be extended to other users as the project grew and appropriate candidates were found.
+At the mid-point of this project, this concept was considered too complex to incorporate into the project as it was. My solution, in order to demonstrate that I understood and could deploy CRUD functionality, was to create a separate webpage which only I knew the URL for (with no links in the actual website itself) which would have Update and Delete functionality built into it. This would basically be an admin page, and once I figure out how to create user profiles at a later date could be linked in to the main website as a section of the site only available to admins. 
