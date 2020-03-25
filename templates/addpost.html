@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3>Add Biography</h3>
+<h3 class="custom-headings left-margin-clearance">Add Biography</h3>
 
 <div class="row">
-	<form class="col s12">
+	<form action="{{url_for('insert_post')}}" method="POST" class="col s12">
 		<div class="row">
 			<div class="input-field col s8">
 				<input placeholder="E.g. Edward Carson" id="title" type="text" class="validate" name="title">
@@ -16,22 +16,22 @@
 			</div>
 		</div>
 		<div class="row">
-			<form class="col s12">
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea id="article" class="materialize-textarea" name="article"></textarea>
-						<label for="textarea1">Article text</label>
-					</div>
-				</div>
-			</form>
+			<div class="input-field col s12">
+				<textarea id="article" class="materialize-textarea" name="article"></textarea>
+				<label for="textarea1">Article text</label>
+			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<input id="author" type="email" class="validate" name="author">
+				<input id="author" type="text" class="validate" name="author">
 				<label for="author">Name of author</label>
 			</div>
 		</div>
+		<div class="left-margin-clearance">
+			<button class="waves-effect waves-light btn custom-headings" type="submit" name="submit">Submit entry for approval</button>
+		</div>
 	</form>
 </div>
+
 
 {% endblock %}

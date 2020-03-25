@@ -23,6 +23,12 @@ def get_posts():
 def add_post():
     return render_template('addpost.html')
 
+@app.route('/insert_post', methods=['POST'])
+def insert_post():
+    posts = mongo.db.userPosts
+    posts.insert_one(request.form.to_dict())
+    return redirect(url_for('get_posts'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

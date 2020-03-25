@@ -1,3 +1,21 @@
+/* testing connectivity */
+
 .test{
     color: yellow;
+}
+
+/* font collection */
+
+.custom-headings {
+    font-family: 'Sen', sans-serif;
+}
+
+.article-body {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* Had a slight problem with some elements hugging the left margin. Developed a small amount of custom css to solve this problem */
+
+.left-margin-clearance {
+    padding-left: 20px;
 }
