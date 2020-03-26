@@ -20,6 +20,7 @@ With more that could be potentially added. These categories could be applied to 
 Functionality
 
 One basic feature that I wanted from the start was for all user-made posts to have a default Boolean value of ‘approved’ which would be ‘false’. I would then have to manually change that value to True. I would then write some python script to iterate over both the admin and the user posts, and only upload those which had the ‘approved’ value set to ‘True’.
+Happily, creating the python script to iterate over this proved straightforward, and I surprised myself by correctly drafting it on only my second attempt. As can be seen in the file 'posts.html', a basic jinja script allows a python 'if' loop to run which checks whether the attribute 'approved' is equal to the Boolean 'true'. If it is, it gets printed. I proved this by inserting a test 'false' entry into my database which did not print when I ran the page again.
 This proved somewhat of a challenge. At the start I did not know how to set a default value in Atlas MongoDB. I thought there were potentially two ways of doing this. One was having a hidden option on the form page itself which was already filled in with ‘False’ and would be submitted with the rest of the form, but this seemed like a cheat workaround instead of actually developing this functionality in the back end (if it would have worked at all).
 
 With that in mind, I went looking for solutions that either:
@@ -31,3 +32,7 @@ CRUD functionality
 In the case of websites with user-created content, it is a challenge to incorporate the Update and Delete functionality of CRUD as it could be open for misuse, as users could delete and amend each other’s posts if these options were publicly available. 
 One solution (if I was at a more advanced stage in my course) would be to create user profiles who have certain permissions to do these two functions (making them admins for the site). I would initially be the only individual with these powers, which could be extended to other users as the project grew and appropriate candidates were found.
 At the mid-point of this project, this concept was considered too complex to incorporate into the project as it was. My solution, in order to demonstrate that I understood and could deploy CRUD functionality, was to create a separate webpage which only I knew the URL for (with no links in the actual website itself) which would have Update and Delete functionality built into it. This would basically be an admin page, and once I figure out how to create user profiles at a later date could be linked in to the main website as a section of the site only available to admins. 
+
+Bibliogrpahy/influences:
+Miguel Grinberg's Flask tutorials were very useful for understanding fully the functionality of what I was doing (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+Traversy media have some useful videos on a variety of topics - the videos on MongoDB on YouTube proved useful for double-explaining some key concepts (https://www.youtube.com/watch?v=-56x56UppqQ)
