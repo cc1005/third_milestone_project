@@ -26,6 +26,8 @@ This proved somewhat of a challenge. At the start I did not know how to set a de
 With that in mind, I went looking for solutions that either:
     a) triggered a certain package of script when the submit button on the form was pressed
     b) meant that whenever the new entry was created in the database, Atlas automatically gave it the key value pair of ‘approved: false’ (much like it already did by giving each entry an automatic ID number). 
+I eventually realised that it was not actually necessary to have a default value of approved:false which I would change to approved:true - I could simply have the form submit without the value of 'approved' at all, which would result in the entry being excluded by the if loop regardless.
+This left the problem of updating each entry to input the key value pair of 'approved:true' for every entry I deemed appropriate. I had discovered that if the 'approved:true' value was put at the end of the document (as opposed to immediately after the ID), the if loop did not register it for publication. This problem baffled me, and I had to then research how to resolve this situation. For while it might be possible for me to log into AtlasDB and manually insert a value of 'approved: true' after the ID on AtlasDB's GUI, this was not exactly an elegant solution. I did realise, however, that any update where I added a new key-value pair of 'approved:true' to the end of my document would not then be read. I had to figure out not just how to insert the key-value pair of 'approved:true' using flask, but also to specify where in the document (immediately after _id) this pair was inserted.
 
 CRUD functionality
 

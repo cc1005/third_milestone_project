@@ -25,7 +25,7 @@ def add_post():
 
 @app.route('/insert_post', methods=['POST'])
 def insert_post():
-    posts = mongo.db.userPosts
+    posts = mongo.db.adminPosts
     posts.insert_one(request.form.to_dict())
     return redirect(url_for('get_posts'))
 
