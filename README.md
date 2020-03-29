@@ -38,3 +38,4 @@ At the mid-point of this project, this concept was considered too complex to inc
 Bibliogrpahy/influences:
 Miguel Grinberg's Flask tutorials were very useful for understanding fully the functionality of what I was doing (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 Traversy media have some useful videos on a variety of topics - the videos on MongoDB on YouTube proved useful for double-explaining some key concepts (https://www.youtube.com/watch?v=-56x56UppqQ)
+Python Hosted gave me all the guidance I needed to get the mail aspect of my app up and running. https://pythonhosted.org/Flask-Mail/
