@@ -34,6 +34,10 @@
     padding-left: 10px;
 }
 
+.add-margin {
+    margin: 30px;
+}
+
 /* For footer */
   body {
     display: flex;
