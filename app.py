@@ -29,10 +29,9 @@ def add_post():
     return render_template('addpost.html')
 
 
-@app.route('/update_delete')
+@app.route('/approve_posts')
 def update_delete():
-    return render_template('updatedelete.html')
-
+    return render_template("approveposts.html", posts=mongo.db.adminPosts.find())
 
 @app.route('/insert_post', methods=['POST'])
 def insert_post():
