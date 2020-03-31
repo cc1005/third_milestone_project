@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="add-margin">
+	<h3 class="custom-headings center">Edit Biography</h3>
+</div>
+
+<div class="row">
+	<form action="{{url_for('update_post', post_id=post._id)}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s8">
+				<input placeholder="E.g. Edward Carson" id="title" type="text" class="validate" name="title" value="{{post.title}}">
+                <label for="title">Name of biography subject</label>
+			</div>
+			<div class="input-field col s4">
+				<input id="dates" type="text" class="validate" placeholder="yyyy - yyyy" name="dates" value="{{post.dates}}">
+                <label for="dates">Birth year - death year</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="article" class="materialize-textarea" name="article">{{post.article}}</textarea>
+                <label for="textarea1">Article text</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="author" type="text" class="validate" name="author" value="{{post.author}}">
+                <label for="author">Name of author</label>
+			</div>
+		</div>
+		<div class="left-margin-clearance">
+			<button class="waves-effect waves-light btn custom-headings" type="submit" name="submit">Submit edit for approval</button>
+		</div>
+	</form>
+</div>
+
+
+{% endblock %}
