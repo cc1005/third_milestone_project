@@ -58,6 +58,11 @@ def update_post(post_id):
     })
     return redirect(url_for('get_posts'))
 
+@app.route('/delete_post/<post_id>')
+def delete_post(post_id):
+    mongo.db.adminPosts.remove({'_id': ObjectId(post_id)})
+    return redirect(url_for('get_posts'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
