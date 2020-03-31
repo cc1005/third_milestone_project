@@ -6,6 +6,16 @@
 
 /* font collection */
 
+.custom-headings-title {
+    font-family: 'Sen', sans-serif;
+    font-size: 22pt;
+}
+
+.custom-headings-footer {
+    font-family: 'Sen', sans-serif;
+    font-size: 16pt;
+}
+
 .custom-headings {
     font-family: 'Sen', sans-serif;
 }
@@ -18,4 +28,27 @@
 
 .left-margin-clearance {
     padding-left: 20px;
+}
+
+.left-margin-clearance-footer {
+    padding-left: 10px;
+}
+
+/* For footer */
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  /* buttons */
+.btn_small{
+    height: 30px;
+    width: 130px;
+    line-height: 30px;
+    margin-top: 10px;
 }

@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="custom-headings">Admin: Updating and Deleting posts</h3>
+<h4 class="custom-headings">Updating and Deleting posts</h4>
+
+<ul class="collapsible">
+	{% for post in posts %}
+	{% if post.approved == true %}
+	<li>
+		<div class="collapsible-header custom-headings"><i class="material-icons">person</i>{{post.title}} <br/> {{post.dates}}
+			<i class="material-icons">expand_more</i></div>
+		<div class="collapsible-body article-body"><span>{{post.article}}</span></div>
+		<a class="waves-effect waves-light btn btn_small">Edit task</a>
+		<a class="waves-effect waves-light btn btn_small">Delete task</a>
+	</li>
+	{% endif %}
+	{% endfor %}
+</ul>
+
+
 
 {% endblock %}

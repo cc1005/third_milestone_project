@@ -12,16 +12,10 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'listOfPosts'
 app.config["MONGO_URI"] = os.environ.get("Mongoinfo")
-app.secret_key = os.environ.get("Serverkey")
+app.secret_key = os.environ.get("Secretkey")
 
 mongo = PyMongo(app)
 login_manager = LoginManager()
-
-login_manager.init_app(app)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
 
 @app.route('/')
 @app.route('/get_posts')
