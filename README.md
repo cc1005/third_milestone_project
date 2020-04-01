@@ -62,3 +62,4 @@ Bibliography/influences:
 The most obvious influence for much of the code in this project was the Mini Project in Data Centric Development. Many of the central loops were heavily influenced by that project, although the approval process was developed by myself. 
 Miguel Grinberg's Flask tutorials were very useful for understanding fully the functionality of what I was doing (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 Traversy media have some useful videos on a variety of topics - the videos on MongoDB on YouTube proved useful for double-explaining some key concepts (https://www.youtube.com/watch?v=-56x56UppqQ)
+The two example articles had their text taken from Wikipedia. 
