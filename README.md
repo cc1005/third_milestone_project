@@ -1,4 +1,7 @@
-Milestone Project 3
+#Milestone Project 3
+
+##Project introduction
+This project is designed to function as a Wikipedia-style website but specifically targeted towards people with an interest in Irish history. Posts will be approved by an admin (with functionality to allow for a specific admin profile to be developed at a later date) while anyone can write a post and send it for approval. As there are currently no restrictions on who can approve posts, this entire loop (public post submission, review of said post, posting of this post on the landing page) is available in its entirety to a user currently visiting the site. The website is responsive to different size devices, and was designed with a deliberately simple style to reflect the content (see section on “Design”)
 
 Early ideas for the project centred around an Irish-history centred Wikipedia style website, but one where all entries were approved/checked by myself as an expert on the topic. Any user could create a post for the website, but every post on creation would be given a Boolean attribute “approved” which would be default set to “False”. These posts would be run over by an if/else loop in Python which would check the Boolean value of “approved”, and if it was “False” the post would not be published. The purpose of this would be to make sure that no posts were published before I had read them and manually changed the “approved” value to “True”. 
 
