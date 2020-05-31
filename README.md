@@ -53,15 +53,24 @@ The colour scheme changed over the course of the project (see [wireframes](/Mile
 
 The font chosen was “Sen”, taken from Google Fonts, with San Serif as a backup incase there was any issue loading this external font. This font was chosen for its business-like but also clean and relatively stylish appearance. To me the font seemed somewhat reminiscent of that for the London Underground (while obviously literally and legally distinct), an implication which I believe only reinforces the historical associations of the website. 
 
+Wireframing was done on pen and paper. There was some limited deviation between the original plans and what they later turned out to be (see the differences between version 1 and version 2 in [wireframe document](/Milestone_3_wireframes.pdf) ), but these were mostly superficial and the fundamental website design remained the same.
+
 ## Features
 
 ### Existing Features
 
-1. Approval of posts
+1. The launch page has a range of article headers on significant figures from Irish history. Their name and dates of birth/death are represented alongside a logo identifying them as a person (as opposed to an event or a document logo, which may be implemented in later versions of the website).
 
-One basic feature that I wanted from the start was for all user-made posts to have a default Boolean value of ‘approved’ which would be ‘false’. Admins would then be able to change that value to True using some variety of interface on the website itself (thereby approving the post). I would then write some python script to iterate over both the admin and the user posts, and only upload those which had the ‘approved’ value set to ‘True’. This feature provide difficult to implement – see the “testing” section for further detail. 
+2. An expanding window reveals biographical details of the individual when the title is clicked on. This expanded window also provides the user with the option to edit or delete the post (a feature which will be restricted to administrators in future versions of the website).
 
-2. 'CRUD' functionality
+3. The ability to create a post is available to users at the top-right of the website. This form allows users to input a name (with a prompt for a well-known figure from Irish history), dates of birth/death, the text of the biography, and the name of the author. This post is then submitted to the MongoDB database where it is stored without any value for “approved”. 
+
+4. Approval of posts
+
+One basic feature that I wanted from the start was for all user-made posts to have a default Boolean value of ‘approved’ which would be ‘false’. Admins would then be able to change that value to True using some variety of interface on the website itself (thereby approving the post). I would then write some python script to iterate over both the admin and the user posts, and only upload those which had the ‘approved’ value set to ‘True’. This feature proved difficult to implement – see the “testing” section for further detail. 
+As it works in the final version of the website, all posts submitted to the database have no value “approved”. Pressing the approve button gives the database entry the value of “approved” which is equal to the string “true”. An if loop then iterates over each post and, if they have the “approved” value of true, allows it to be posted on the launch page. 
+
+5. 'CRUD' functionality
 
 The website clearly demonstrates all aspects of the CRUD requirements of the module:
 - Posts are created by clicking on the 'Write a biography' link at the top right of the page.
@@ -69,15 +78,13 @@ The website clearly demonstrates all aspects of the CRUD requirements of the mod
 - Posts can be deleted either from the launch page or in the 'Approve posts' section.
 - Posts can be both edited and updated with the value of 'approved: "true"'.
 
+6. Reactivity
 
-
-
-
-
-
-
+The website is usable and attractive at all viewport sizes, something that was made much easier by its simple design. 
 
 ### Features left to implement
+
+1. Users & email notification system
 
 Early ideas for the project centred around an Irish-history centred Wikipedia style website, but one where all entries were approved/checked by myself as an expert on the topic. Any user could create a post for the website, but every post on creation would be given a Boolean attribute “approved” which would be default set to “False”. These posts would be run over by an if/else loop in Python which would check the Boolean value of “approved”, and if it was “False” the post would not be published. The purpose of this would be to make sure that no posts were published before I had read them and manually changed the “approved” value to “True”. 
 
@@ -87,19 +94,20 @@ Ultimately, the project ended up being simpler than that detailed above. I spent
 
 In a longer-term perspective for the project, it is apparent that the Update and Delete functionality could be open for misuse, as users could delete and amend each other’s posts if these options were publicly available. As mentioned, incorporating user-profiles (with myself as the administrator) would solve this problem in the longer term. 
 
+2. Search functionality
 
+A simple search functionality would obviously be necessary if the website increased significantly in scope. A fundamental redesign may be required for this, perhaps with only a handful of pages (perhaps selected randomly) displayed on the launch page with the option to search for more displayed in the navbar. 
 
+3. Categories & looking beyond biographies
 
-
-
-
+If the scope of the website expanded to include more than just biographies and included documents and other historical information, a system of organising these pages into categories could prove useful. Indeed, being able to browse categories based on potential new values that could be attributed to entries (e.g. “Taoiseach:true”) could be useful for users.
 
 ## Technologies used
 
 - HTML, CSS and Javascript are the basic languages used in the frontend of the website.
 - Python is the scripting language for the backend.
 - Flask was the web framework used to develop the functionality for the website. (https://www.fullstackpython.com/flask.html)
-- The database was provided by MongoDB. (https://www.mongodb.com/)
+- The database was provided by MongoDB. MongDB Atlas was used as the GUI for accessing the database (although on occasion it was accessed through the CLI on GitPod) (https://www.mongodb.com/)
 - The website was hosted on Heroku. See “Deployment” for details on how the website was hosted (as well as the setup of Flask and MongoDB). (https://www.heroku.com/)
 - As mentioned previously, Materialize was used as a CSS Framework, while Google Fonts provided the font used for the website. (https://materializecss.com/ ; https://fonts.google.com/)
 
@@ -111,7 +119,7 @@ Due to the continued transfers from different workspaces by the Code Institute, 
 
 I made quite a bit of progress setting up the various connections on my local server, but encountered significant difficulties getting MongoDB Atlas to communicate with my local server through python, so eventually moved to GitPod, mainly for the higher level of support through Slack for that IDE. From there I started plugging in the various platforms I needed to get up and running, but faced significant obstacles trying to set up environmental variables to store sensitive user information (mainly my own MongoDB login details). Eventually, after incorrectly creating them in the ‘workspace’ directory, with tutor support I set up my env.py file in the main directory ‘third_milestone_project’, placed it in a .gitignore file, and managed to connect this to my central python app, testing its functionality with a “hello world” style test message. From this point onwards the connections with Heroku and MongoDB Atlas had been made, and now I could focus on the actual coding/design of the project.
 
-## Creating the approval functionality
+### Creating the approval functionality
 
 The most significant testing challenge came in developing the approval functionality for admins to allow posts created by users to be released to the launching page. 
 
@@ -133,40 +141,14 @@ Eventually, i settled on a workaround (seen in approveposts.html) where essentia
 
 ## Testing the user stories
 
-1.
-
-2.
-
-3.
-
-4.
-
+1. *An individual interested in reading biographies of major Irish historical figures at home on their computer*
+This user can simply arrive at the launch page and see all of the available pages laid out in front of them. They can click on any of those pages and they will expand out to give the full article. 
+2. *Individuals interested in browsing biographies of major Irish historical figures at home or while travelling on their mobile phones*
+The testing story for this user is similar to that of the individual who uses the website on a desktop computer, the only difference being that the website is totally reactive. Testing the website on a mobile phone has proven that it works at all viewport sizes. 
+3. Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum
+4. An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3. 
 
 ## Deployment
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Bibliography/influences:
