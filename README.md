@@ -6,18 +6,19 @@ This README should be considered alongside the PDF file Milestone_3_wireframes w
 This project is designed to function as a Wikipedia-style website but specifically targeted towards people with an interest in Irish history. Posts will be approved by an admin (with functionality to allow for a specific admin profile to be developed at a later date) while anyone can write a post and send it for approval. As there are currently no restrictions on who can approve posts, this entire loop (public post submission, review of said post, posting of this post on the landing page) is available in its entirety to a user currently visiting the site. The website is responsive to different size devices, and was designed with a deliberately simple style to reflect the content (see section on “UX”)
 
 ### User Stories
-There are several types of users who would be potential customers of the website.
+There are several types of users who would be potential customers of the website. All of these users would have some degree of interest in Irish history, and therefore the design of the website was based around having a more muted academic tone. The users could be:
 
 1. An individual interested in reading biographies of major Irish historical figures at home on their computer
 2. Individuals interested in browsing biographies of major Irish historical figures at home or while travelling on their mobile phones
 3. Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum
 4. An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3. 
+5. An admin who wants to help maintain high standards by editing an article which has already been published. 
 
 These user needs were met by:
 
 - Allowing for a clear, minimalist design, with the biographical/dictionary articles placed front and centre.
 - Having the titles of the biographies collapsed by default, allowing users to scan them and then expand out the article they are most interested in. 
-- Having a website that allowed full navigation regardless of where the user was on the site (and by designing the site to only have three pages, with the primary content delivered immediately on the launch page).
+- Having a website that allowed full navigation regardless of where the user was on the site (and by designing the site to only have three pages, with the primary content delivered immediately on the launch page). There are only three pages on the whole website, and links to all three of them are on display by default as they are part of the base.html template. 
 - Experts in Irish history (or indeed anyone who wishes to post) are provided with a dedicated page for inputting a post for approval by the administrative staff (at this point anyone can use this functionality – user profiles are a future feature of this project). 
 - Admins have a dedicated page for approving posts, which presents potential posts in a simple style (similar to how they are presented on the main page). This page allows for admins not only to approve or reject posts, but also edit them to correct small errors (should the project get launched on a broader scale a dedicated administrator’s code would be created to ensure no meaningful changes were made without the poster’s permission).
 - Having a collapsible UI. Given the deliberately pared back nature of the project, the degree to which the material presented changes at different viewpoints is relatively subtle. 
@@ -69,13 +70,17 @@ Wireframing was done on pen and paper. There was some limited deviation between 
 
 As it works in the final version of the website, all posts submitted to the database have no value “approved”. Pressing the approve button gives the database entry the value of “approved” which is equal to the string “true”. An if loop then iterates over each post and, if they have the “approved” value of true, allows it to be posted on the launch page. 
 
-5. 'CRUD' functionality.The website clearly demonstrates all aspects of the CRUD requirements of the module:
+5. Update functionality. Posts can be edited and updated, even after they have been published to the launch page. When pages are updated, their approval status is removed and they must be reapproved (in future versions this will be exclusively available to admins). This is achieved by having the post sourced by the route “edit_post” in app.py, which allows the form to be pre-populated with the text. When the form is submitted, however, the form is essentially submitted as an entirely new entry (with only the post id carried over from the previous entry), which allowed for the entry to be submitted to the MongoDB database without the value of “approved = true”.
+
+6. Delete functionality. Any post can be deleted using the delete button which is available when the title is expanded. 
+
+6. 'CRUD' functionality. The website clearly demonstrates all aspects of the CRUD requirements of the module:
 - Posts are created by clicking on the 'Write a biography' link at the top right of the page.
 - Pages are read out to the launch page (as long as they have been approved).
 - Posts can be deleted either from the launch page or in the 'Approve posts' section.
 - Posts can be both edited and updated with the value of 'approved: "true"'.
 
-6. Reactivity. The website is usable and attractive at all viewport sizes, something that was made much easier by its simple design. 
+7. Reactivity. The website is usable and attractive at all viewport sizes, something that was made much easier by its simple design. 
 
 ### Features left to implement
 
@@ -98,7 +103,7 @@ In a longer-term perspective for the project, it is apparent that the Update and
 - HTML, CSS and Javascript are the basic languages used in the frontend of the website.
 - Python is the scripting language for the backend.
 - Flask was the web framework used to develop the functionality for the website. (https://www.fullstackpython.com/flask.html)
-- The database was provided by MongoDB. MongDB Atlas was used as the GUI for accessing the database (although on occasion it was accessed through the CLI on GitPod) (https://www.mongodb.com/)
+- The database was provided by MongoDB. MongDB Atlas was used as the GUI for accessing the database (although on occasion it was accessed through the CLI on GitPod) (https://www.mongodb.com/). A single collection was used for all posts as no further Databases were deemed necessary, and this is reinforced by the choice of a noSQL database. 
 - The website was hosted on Heroku. See “Deployment” for details on how the website was hosted (as well as the setup of Flask and MongoDB). (https://www.heroku.com/)
 - As mentioned previously, Materialize was used as a CSS Framework, while Google Fonts provided the font used for the website. (https://materializecss.com/ ; https://fonts.google.com/)
 
@@ -119,8 +124,8 @@ Creating the python script to iterate over whether posts had the attribute “tr
 Figuring out how to give a collection the default key:value pair proved very challenging, but ultimately the solution ended up being very simple. At the start I did not know how to set a default value in Atlas MongoDB. I thought there were potentially two ways of doing this. 
 
 With that in mind, I went looking for solutions that either:
-    a) triggered a certain package of script when the submit button on the form was pressed (this is what I essentially did to fix my approval page)
-    b) meant that whenever the new entry was created in the database, Atlas automatically gave it the key value pair of ‘approved: false’ (much like it already did by giving each entry an automatic ID number). 
+1. triggered a certain package of script when the submit button on the form was pressed (this is what I essentially did to fix my approval page)
+2. meant that whenever the new entry was created in the database, Atlas automatically gave it the key value pair of ‘approved: false’ (much like it already did by giving each entry an automatic ID number). 
 
 I eventually realised that it was not actually necessary to have a default value of approved:false which I would change to approved:true - I could simply have the form submit without the value of 'approved' at all, which would result in the entry being excluded by the if loop regardless.
 
@@ -136,11 +141,32 @@ Eventually, i settled on a workaround (seen in approveposts.html) where essentia
 This user can simply arrive at the launch page and see all of the available pages laid out in front of them. They can click on any of those pages and they will expand out to give the full article. 
 2. *Individuals interested in browsing biographies of major Irish historical figures at home or while travelling on their mobile phones*
 The testing story for this user is similar to that of the individual who uses the website on a desktop computer, the only difference being that the website is totally reactive. Testing the website on a mobile phone has proven that it works at all viewport sizes. 
-3. Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum
-4. An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3. 
+3. *Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum*
+Anyone who wishes to create a post can simply click on the “create post” link in the top right of the website and input the name, dates, article, and their own name into the form. This sends the article to the holding area where they can be checked using the approve posts link at the bottom of the page. 
+4. *An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3.*
+This user can click the link at the bottom of the page to see all the articles yet to be approved. They can then click on the titles of the articles. If they deem the articles to be appropriate, they can approve them and they will be posted to the launch page. Alternatively, the articles can be edited 
 
 ## Deployment
 
+As was explained earlier in the “testing” section, the website was developed on both GitPod IDE and on Visual Studio Code. Both Git and GitHub were used routinely for version control, with commits made for both significant changes and for backup purposes when I took breaks from the project. 
+
+On my local machine/github, some sensitive information was needed to make the website run outside of the launch platform, specifically my Atlas MongoDB password and username. On both my local machine and on GitPod this was done by using a .env file to store environmental variables and by excluding this file from git commits using a .gitignore file. The necessary variables could be then accessed by referencing the operating system, and this method was also used in the final build to access the Config Vars from Heroku. 
+
+All database information was stored on MongoDB, and this database was access through Atlas MongoDB. 
+
+Only one GitHub branch was ever used to develop the project, but this branch was originally forked from Code Institute’s Gitpod template. 
+
+The project was deployed on Heroku. In order for this to work, a Procfile was created in my project which allowed Heroku to read the file that needed to be run to allow the web page to launch. 
+
+The project was deployed by using my pre-existing Heroku profile and creating a new app based in Europe and under the name “thirdmilestoneprojectcodeinst“. I then connected my project to the new app by logging in to my Heroku profile in my CLI and then simply pushing the project to the Heroku master whenever I wanted to deploy the project. I later deployed the project by connecting my Heroku app page directly to the GitHub depository for the project and building the project from the master branch there. In both cases, an option was given after the 
+
+The log in information for MongoDB was stored in the Config Vars on Heroku to make sure the launched website could still communicate with the MongoDB database. I stored these values by going to settings, clicking on “reveal config vars”, and by inputting the information as key value pairs. I also set the IP address and PORT values here. 
+
+To clone the website, go to the github depository (https://github.com/cc1005/third_milestone_project) and click clone or download. The project can simply be downloaded as a zip file which can be unpacked on your local machine. 
+
+Otherwise, from the clone or download tab, copy the project url to your clipboard. If using GitPod as an IDE, create a new project on GitHub, click on “import code from another depository” when setting up your new project, and paste the url from your clipboard into the text box. This will clone the project into your new GitHub project. 
+
+In all cases of downloading the project to your local machine you will need to set up your own MongoDB database to allow the project to run as you will not have access to the databse used in this project. 
 
 ## Bibliography/influences:
 
