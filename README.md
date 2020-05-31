@@ -1,5 +1,7 @@
 # Milestone Project 3
 
+This README should be considered alongside the PDF file Milestone_3_wireframes will illustrates some of the developments detailed in this document. This PDF file is available in the root directory of this project [here](/Milestone_3_wireframes.pdf). 
+
 ## Project introduction
 This project is designed to function as a Wikipedia-style website but specifically targeted towards people with an interest in Irish history. Posts will be approved by an admin (with functionality to allow for a specific admin profile to be developed at a later date) while anyone can write a post and send it for approval. As there are currently no restrictions on who can approve posts, this entire loop (public post submission, review of said post, posting of this post on the landing page) is available in its entirety to a user currently visiting the site. The website is responsive to different size devices, and was designed with a deliberately simple style to reflect the content (see section on “Design”)
 
