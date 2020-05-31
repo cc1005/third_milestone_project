@@ -8,9 +8,9 @@ This project is designed to function as a Wikipedia-style website but specifical
 ### User Stories
 There are several types of users who would be potential customers of the website. All of these users would have some degree of interest in Irish history, and therefore the design of the website was based around having a more muted academic tone. The users could be:
 
-1. An individual interested in reading biographies of major Irish historical figures at home on their computer
-2. Individuals interested in browsing biographies of major Irish historical figures at home or while travelling on their mobile phones
-3. Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum
+1. An individual interested in reading biographies of major Irish historical figures at home on their computer.
+2. Individuals interested in browsing biographies of major Irish historical figures at home or while travelling on their mobile phones.
+3. Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum.
 4. An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3. 
 5. An admin who wants to help maintain high standards by editing an article which has already been published. 
 
@@ -21,12 +21,12 @@ These user needs were met by:
 - Having a website that allowed full navigation regardless of where the user was on the site (and by designing the site to only have three pages, with the primary content delivered immediately on the launch page). There are only three pages on the whole website, and links to all three of them are on display by default as they are part of the base.html template. 
 - Experts in Irish history (or indeed anyone who wishes to post) are provided with a dedicated page for inputting a post for approval by the administrative staff (at this point anyone can use this functionality – user profiles are a future feature of this project). 
 - Admins have a dedicated page for approving posts, which presents potential posts in a simple style (similar to how they are presented on the main page). This page allows for admins not only to approve or reject posts, but also edit them to correct small errors (should the project get launched on a broader scale a dedicated administrator’s code would be created to ensure no meaningful changes were made without the poster’s permission).
-- Having a collapsible UI. Given the deliberately pared back nature of the project, the degree to which the material presented changes at different viewpoints is relatively subtle. 
+- Having a website that accommodated all viewport sizes. Given the deliberately pared back nature of the project, the degree to which the material presented changes at different viewpoints is relatively subtle. 
 
 There are also certain benefits to developing this website for the developer:
 
-1. Demonstrating the developer’s flask skills
-2. Demonstrating the developer’s ability to design clear, functional websites with little superfluous material (no/limited scope creep)
+1. Demonstrating the developer’s flask skills.
+2. Demonstrating the developer’s ability to design clear, functional websites with little superfluous material (no/limited scope creep).
 3. Demonstrating the developer’s usefulness in the field of Modern Irish history which, while obviously well-populated by academic experts, has a considerable deficit of well-produced online content. 
 
 ## UX
@@ -48,13 +48,13 @@ Early drafts of the website considered using images for each post (see [wirefram
 
 ### CSS framework, colour scheme and font
 
-In terms of appearance, Materialize was used for the appearance of the website. I mainly did this to experiment with a new set of pre-built CSS. As can be seen in the static/style.css directory, significant custom CSS was introduced to fix/amend certain aspects of the Materialize framework (most of which is explained in the comments in that file). I wanted to go for a minimalist appearance, with the biographical articles occupying front and centre of the project. 
+In terms of appearance, Materialize was used for the appearance of the website. I mainly did this to experiment with a new set of pre-built CSS aside from Bootstrap which I am already very familiar with. As can be seen in the static/style.css directory, significant custom CSS was introduced to fix/amend certain aspects of the Materialize framework (most of which is explained in the comments in that file). I wanted to go for a minimalist appearance, with the biographical articles occupying front and centre of the project. 
 
-The colour scheme changed over the course of the project (see [wireframes](/Milestone_3_wireframes.pdf) ). Originally a more attention grabbing purple and orange theme was chosen, but this in hindsight seemed too garish given the more reserved nature of the material being displayed. Instead, a more muted green theme was chosen to emphasise both the serious nature of the content and the national focus of the biographies. Button highlights were modified for certain button prompts, but this was done subtly to fit in with the broader theme (see the shade contrast when the button to submit a biography is hovered over for example). The colourscheme was chosen and developed with the assistance of the web app [coolors](https://coolors.co/).
+The colour scheme changed over the course of the project (see [wireframes](/Milestone_3_wireframes.pdf) ). Originally a more attention-grabbing purple and orange theme was chosen, but this in hindsight seemed too garish given the more reserved nature of the material being displayed. Instead, a more muted green theme was chosen to emphasise both the serious nature of the content and the national focus of the biographies. Button highlights were modified for certain button prompts, but this was done subtly to fit in with the broader theme (see the shade contrast when the button to submit a biography is hovered over for example). The colour scheme was chosen and developed with the assistance of the web app [coolors](https://coolors.co/).
 
 The font chosen was “Sen”, taken from Google Fonts, with San Serif as a backup incase there was any issue loading this external font. This font was chosen for its business-like but also clean and relatively stylish appearance. To me the font seemed somewhat reminiscent of that for the London Underground (while obviously literally and legally distinct), an implication which I believe only reinforces the historical associations of the website. 
 
-Wireframing was done on pen and paper. There was some limited deviation between the original plans and what they later turned out to be (see the differences between version 1 and version 2 in [wireframe document](/Milestone_3_wireframes.pdf) ), but these were mostly superficial and the fundamental website design remained the same.
+Wireframing was done on pen and paper. There was some limited deviation between the original plans and what they later turned out to be (see the differences between version 1 and version 2 in [wireframe document](/Milestone_3_wireframes.pdf) ), but these were mostly superficial and the fundamental website design remained the same despite some of the changes mentioned previously.
 
 ## Features
 
@@ -92,7 +92,7 @@ In order to make sure that no posts are left without being read for long periods
 
 Ultimately, the project ended up being simpler than that detailed above. I spent a long time trying to figure out both the email notification system and the implementation of login authentication, installing Flask-Mail and Flask-Login into the project and developing other parts of my database to house users, but ultimately decided that both were beyond the scope of the project as defined by the Code Institute. These features would be essential for the project to be feasible as a fully deployed project, but my familiarity with Flask-Login and Flask-Mail would have to be developed significantly (even after many hours working with it, I still could not get this functionality present in the project and decided to focus my effort on meeting the criteria for the milestone project).
 
-In a longer-term perspective for the project, it is apparent that the Update and Delete functionality could be open for misuse, as users could delete and amend each other’s posts if these options were publicly available. As mentioned, incorporating user-profiles (with myself as the administrator) would solve this problem in the longer term. 
+In a longer-term perspective for the project, it is apparent that the Update and Delete functionality could be open for misuse, as users could delete and amend each other’s posts if these options were publicly available. As mentioned, incorporating user-profiles (with myself as the administrator) would solve this problem in the longer term. Additionally, different tiers of administrator could be introduced, with the ability to finally approve articles and edits reserved for more senior admins, while admins with fewer privileges could submit edits for approval by more senior admins. 
 
 2. *Search functionality* A simple search functionality would obviously be necessary if the website increased significantly in scope. A fundamental redesign may be required for this, perhaps with only a handful of pages (perhaps selected randomly) displayed on the launch page with the option to search for more displayed in the navbar. 
 
@@ -135,6 +135,12 @@ Eventually, i settled on a workaround (seen in approveposts.html) where essentia
 
 ** note ** I realised towards the end of the project, when putting together the approval page (the last page of the project) that assigning a Boolean to a key:value pair in MongoDB using Flask required some parsing which did not seem necessary - the value could be set as a string with a similar result for my current purposes. 
 
+### Other bugs found during testing
+
+- Early on when testing viewport sizes, I discovered that while I believed the website was behaving reactively as it changed when I moved the size of my window on my computer, I realised after loading up the launched version of the project on my mobile phone that the site was not collapsing on other actual screen sizes. The same became apparent when I tested the reactivity of the site using the “inspect” tool on Google Chrome. I subsequently discovered I had left out the viewport meta characteristics at the top of my base.html file.
+- The footer proved particularly tricky to make work properly, and earlier versions of the project can be seen to have a fixed footer at the bottom of the window for clean presentation. This footer consistently clipped with the buttons at the bottom of the posts (which overlapped with the footer unlike the articles). This problem was most notable when using the form page on small viewports, where the submit form button would completely overwhelm the option to approve posts on the footer. Ultimately it was decided to have a non-sticky footer, especially as the actual length of the website (in terms of the amount of articles) would be variable and the approve functionality was one of the more specialist areas for future admins. 
+- Some issues were faced with Materialize not setting appropriate padding with the left hand side of the viewport. I resolved this issue with custom CSS.
+
 ### Testing the user stories
 
 1. *An individual interested in reading biographies of major Irish historical figures at home on their computer*
@@ -144,7 +150,8 @@ The testing story for this user is similar to that of the individual who uses th
 3. *Someone who is an expert on Irish history or particular Irish historical figures who wishes to share their knowledge in a public forum*
 Anyone who wishes to create a post can simply click on the “create post” link in the top right of the website and input the name, dates, article, and their own name into the form. This sends the article to the holding area where they can be checked using the approve posts link at the bottom of the page. 
 4. *An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3.*
-This user can click the link at the bottom of the page to see all the articles yet to be approved. They can then click on the titles of the articles. If they deem the articles to be appropriate, they can approve them and they will be posted to the launch page. Alternatively, the articles can be edited 
+This user can click the link at the bottom of the page to see all the articles yet to be approved. They can then click on the titles of the articles. If they deem the articles to be appropriate, they can approve them and they will be posted to the launch page.
+5. * An admin who wants to help maintain high standards by editing an article which has already been published.* This user can edit articles on the launch page by pressing the “edit” button. This article will then be pre-loaded into a form, which can then be modified as the user sees fit. This edited article will then be resubmitted for approval. In future versions this functionality will be hidden to non-admin users after user functionality will be added. 
 
 ## Deployment
 
@@ -166,7 +173,7 @@ To clone the website, go to the github depository (https://github.com/cc1005/thi
 
 Otherwise, from the clone or download tab, copy the project url to your clipboard. If using GitPod as an IDE, create a new project on GitHub, click on “import code from another depository” when setting up your new project, and paste the url from your clipboard into the text box. This will clone the project into your new GitHub project. 
 
-In all cases of downloading the project to your local machine you will need to set up your own MongoDB database to allow the project to run as you will not have access to the databse used in this project. 
+In all cases of downloading the project to your local machine you will need to set up your own MongoDB database to allow the project to run as you will not have access to the database used in this project. 
 
 ## Bibliography/influences:
 
