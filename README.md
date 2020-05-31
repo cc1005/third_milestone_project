@@ -29,7 +29,9 @@ There are also certain benefits to developing this website for the developer:
 3. Demonstrating the developer’s usefulness in the field of Modern Irish history which, while obviously well-populated by academic experts, has a considerable deficit of well-produced online content. 
 
 ## UX
-From an early stage I decided to keep the app to a single page to start. As it was primarily a biography site, emphasising key figures in Irish history with collapsible headings to save space, I did not see the need to introduce distinct categories or several pages for different types of information. As the scope of the website expanded, I could consider adding multiple different pages, potentially:
+
+### Basic principles & number of pages
+From an early stage I decided to keep the app to a single page to start. As it was primarily a biography site, emphasising key figures in Irish history with collapsible headings to save space, I did not see the need to introduce distinct categories or several pages for different types of information. If the scope of the website expanded, I could consider adding multiple different pages, potentially:
 
 - People
 - Events
@@ -37,11 +39,17 @@ From an early stage I decided to keep the app to a single page to start. As it w
 
 With more that could be potentially added. These categories could be applied to the post when reviewed by the administrator, or could be suggested from a list by the poster in the first place. This type of website would of course require multiple pages and some sort of sorting/search functionality. For now, the website will function as a simple crowd-sourced biography website, with posts having to be approved before they are published to the main page (albeit through a non-login protected page).
 
+The aspiration to have the entire site contained within a single page was ultimately complicated by the need to have a platform for approving posts and for submitting them. Having these on the same page would have resulted in a confusing User Interface. Ultimately, distinct pages were created for writing a biography and for approving biographies, but the navbar and footer were kept consistent through the use of a base.html file that was the parent for all pages on the site. 
+
+### The question of images
+
 Early drafts of the website considered using images for each post (see [wireframe document](/Milestone_3_wireframes.pdf) ), but this was left out of the final project in favour of simple icons indicating the biographical nature of each post. If the project is to be expanded in the future, different icons could be used to represent different categories of entries. Images were avoided given the user-provided nature of the content – having previously worked in exhibition design, I know that obtaining copyright permission for images can be a long and difficult process, and this applies especially to images which you do not personally know the source of. Allowing users to upload their own photographs for posts would place an inordinate burden on the administrators to verify their copyright and requiring the administrators to provide images for each post would also be very time consuming. Text on the other hand can be readily checked for plagiarism using a range of online platforms (Turnitin for example). 
 
-In terms of UX and appearance, Materialize was used for the appearance of the website. I mainly did this to experiment with a new set of pre-built CSS. As can be seen in the static/style.css directory, significant custom CSS was introduced to fix/amend certain aspects of the Materialize framework (most of which is explained in the comments in that file). I wanted to go for a minimalist appearance, with the biographical articles occupying front and centre of the project. 
+### CSS framework, colour scheme and font
 
-The colour scheme changed over the course of the project (see [wireframes](/Milestone_3_wireframes.pdf) ). Originally a more attention grabbing purple and orange theme was chosen, but this in hindsight seemed too garish given the more reserved nature of the material being displayed. Instead, a more muted green theme was chosen to emphasise both the serious nature of the content and the national focus of the biographies. Button highlights were modified for certain button prompts, but this was done subtly to fit in with the broader theme (see the shade contrast when the button to submit a biography is hovered over for example). The colourscheme was chosen and developed with the assistance of the web app [coolors](www.coolors.co).
+In terms of appearance, Materialize was used for the appearance of the website. I mainly did this to experiment with a new set of pre-built CSS. As can be seen in the static/style.css directory, significant custom CSS was introduced to fix/amend certain aspects of the Materialize framework (most of which is explained in the comments in that file). I wanted to go for a minimalist appearance, with the biographical articles occupying front and centre of the project. 
+
+The colour scheme changed over the course of the project (see [wireframes](/Milestone_3_wireframes.pdf) ). Originally a more attention grabbing purple and orange theme was chosen, but this in hindsight seemed too garish given the more reserved nature of the material being displayed. Instead, a more muted green theme was chosen to emphasise both the serious nature of the content and the national focus of the biographies. Button highlights were modified for certain button prompts, but this was done subtly to fit in with the broader theme (see the shade contrast when the button to submit a biography is hovered over for example). The colourscheme was chosen and developed with the assistance of the web app [coolors](https://coolors.co/).
 
 The font chosen was “Sen”, taken from Google Fonts, with San Serif as a backup incase there was any issue loading this external font. This font was chosen for its business-like but also clean and relatively stylish appearance. To me the font seemed somewhat reminiscent of that for the London Underground (while obviously literally and legally distinct), an implication which I believe only reinforces the historical associations of the website. 
 
@@ -86,11 +94,18 @@ In a longer-term perspective for the project, it is apparent that the Update and
 
 
 
+## Technologies used
 
+- HTML, CSS and Javascript are the basic languages used in the frontend of the website.
+- Python is the scripting language for the backend.
+- Flask was the web framework used to develop the functionality for the website. (https://www.fullstackpython.com/flask.html)
+- The database was provided by MongoDB. (https://www.mongodb.com/)
+- The website was hosted on Heroku. See “Deployment” for details on how the website was hosted (as well as the setup of Flask and MongoDB). (https://www.heroku.com/)
+- As mentioned previously, Materialize was used as a CSS Framework, while Google Fonts provided the font used for the website. (https://materializecss.com/ ; https://fonts.google.com/)
 
-### Testing
+## Testing
 
-## Settling on a development environment
+### Settling on a development environment
 
 Due to the continued transfers from different workspaces by the Code Institute, I decided to try and do all my coding on my local machine, using a virtual environment set up in Python. This proved to be very challenging, with many teething problems coming up as I tried to do something that was not covered by the Code Institute course. I believe this will prove useful for my future professional development as a software developer, but it also proved time consuming and frequently frustrating. In particular, it required developing my understanding of how databases like MongoDB Atlas communicate with servers, how ports work, and how environmental variables work outside of the closely controlled environment of Cloud9 (which by this point had already been shut down). 
 
