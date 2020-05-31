@@ -5,6 +5,8 @@ This README should be considered alongside the PDF file Milestone_3_wireframes w
 ## Project introduction
 This project is designed to function as a Wikipedia-style website but specifically targeted towards people with an interest in Irish history. Posts will be approved by an admin (with functionality to allow for a specific admin profile to be developed at a later date) while anyone can write a post and send it for approval. As there are currently no restrictions on who can approve posts, this entire loop (public post submission, review of said post, posting of this post on the landing page) is available in its entirety to a user currently visiting the site. The website is responsive to different size devices, and was designed with a deliberately simple style to reflect the content (see section on “UX”)
 
+## UX
+
 ### User Stories
 There are several types of users who would be potential customers of the website. All of these users would have some degree of interest in Irish history, and therefore the design of the website was based around having a more muted academic tone. The users could be:
 
@@ -28,8 +30,6 @@ There are also certain benefits to developing this website for the developer:
 1. Demonstrating the developer’s flask skills.
 2. Demonstrating the developer’s ability to design clear, functional websites with little superfluous material (no/limited scope creep).
 3. Demonstrating the developer’s usefulness in the field of Modern Irish history which, while obviously well-populated by academic experts, has a considerable deficit of well-produced online content. 
-
-## UX
 
 ### Basic principles & number of pages
 From an early stage I decided to keep the app to a single page to start. As it was primarily a biography site, emphasising key figures in Irish history with collapsible headings to save space, I did not see the need to introduce distinct categories or several pages for different types of information. If the scope of the website expanded, I could consider adding multiple different pages, potentially:
@@ -104,7 +104,7 @@ In a longer-term perspective for the project, it is apparent that the Update and
 - Python is the scripting language for the backend.
 - Flask was the web framework used to develop the functionality for the website. (https://www.fullstackpython.com/flask.html)
 - The database was provided by MongoDB. MongDB Atlas was used as the GUI for accessing the database (although on occasion it was accessed through the CLI on GitPod) (https://www.mongodb.com/). A single collection was used for all posts as no further Databases were deemed necessary, and this is reinforced by the choice of a noSQL database. 
-- The website was hosted on Heroku. See “Deployment” for details on how the website was hosted (as well as the setup of Flask and MongoDB). (https://www.heroku.com/)
+- The website was hosted on Heroku. See “Deployment” for details on how the website was hosted. (https://www.heroku.com/)
 - As mentioned previously, Materialize was used as a CSS Framework, while Google Fonts provided the font used for the website. (https://materializecss.com/ ; https://fonts.google.com/)
 
 ## Testing
@@ -151,7 +151,7 @@ The testing story for this user is similar to that of the individual who uses th
 Anyone who wishes to create a post can simply click on the “create post” link in the top right of the website and input the name, dates, article, and their own name into the form. This sends the article to the holding area where they can be checked using the approve posts link at the bottom of the page. 
 4. *An admin who wants to help maintain high standards for the articles submitted by approving or rejecting the posts submitted by those in category 3.*
 This user can click the link at the bottom of the page to see all the articles yet to be approved. They can then click on the titles of the articles. If they deem the articles to be appropriate, they can approve them and they will be posted to the launch page.
-5. * An admin who wants to help maintain high standards by editing an article which has already been published.* This user can edit articles on the launch page by pressing the “edit” button. This article will then be pre-loaded into a form, which can then be modified as the user sees fit. This edited article will then be resubmitted for approval. In future versions this functionality will be hidden to non-admin users after user functionality will be added. 
+5. *An admin who wants to help maintain high standards by editing an article which has already been published.* This user can edit articles on the launch page by pressing the “edit” button. This article will then be pre-loaded into a form, which can then be modified as the user sees fit. This edited article will then be resubmitted for approval. In future versions this functionality will be hidden to non-admin users after user functionality will be added. 
 
 ## Deployment
 
@@ -177,7 +177,7 @@ In all cases of downloading the project to your local machine you will need to s
 
 ## Bibliography/influences:
 
-The most obvious influence for much of the code in this project was the Mini Project in Data Centric Development. Many of the central loops were heavily influenced by that project, although the approval process was developed by myself. 
-Miguel Grinberg's Flask tutorials were very useful for understanding fully the functionality of what I was doing (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
-Traversy media have some useful videos on a variety of topics - the videos on MongoDB on YouTube proved useful for double-explaining some key concepts (https://www.youtube.com/watch?v=-56x56UppqQ)
-The two example articles had their text taken from Wikipedia. 
+- The most obvious influence for much of the code in this project was the Mini Project in Data Centric Development. Many of the central loops were heavily influenced by that project, although the approval process was developed by myself. 
+- Miguel Grinberg's Flask tutorials were very useful for understanding fully the functionality of what I was doing (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+- Traversy media have some useful videos on a variety of topics - the videos on MongoDB on YouTube proved useful for double-explaining some key concepts (https://www.youtube.com/watch?v=-56x56UppqQ)
+-The example articles had their text taken from Wikipedia. 
